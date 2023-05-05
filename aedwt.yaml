@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  title: Hong Kong Queue Time for Hospitals A&E API
+  version: 1.0.0
+  description: API for retrieving the queue time for A&E departments in Hong Kong hospitals.
+servers:
+  - url: https://www.ha.org.hk/aedwt/data/aedWtData.json
+paths:
+  /:
+    get:
+      summary: Get the queue time for A&E departments in Hong Kong hospitals.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    description: Indicates whether the API request was successful.
+                    example: Y
+                  result:
+                    type: object
+                    properties:
+                      hospData:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            hospCode:
+                              type: string
+                              description: The hospital code.
+                              example: AHN
+                            hospNameEn:
+                              type: string
+                              description: The hospital name in English.
+                              example: Alice Ho Miu Ling Nethersole Hospital
+                            hospNameB5:
+                              type: string
+                              description: The hospital name in Traditional Chinese.
+                              example: 雅麗氏何妙齡那打素醫院
+                            hospNameGb:
+                              type: string
+                              description: The hospital name in Simplified Chinese.
+                              example: 雅丽氏何妙龄那打素医院
+                            seq:
+                              type: string
+                              description: The hospital sequence number.
+                              example: NT-01
+                            hospUrlEn:
+                              type: string
+                              description: The hospital URL in English.
+                              example: http://www.ha.org.hk/visitor/ha_visitor_index.asp?Content_ID=100171&Lang=ENG&Dimension=100&Parent_ID=10180
+                            hospUrlB5:
+                              type: string
+                              description: The hospital URL in Traditional Chinese.
+                              example: http://www.ha.org.hk/visitor/ha_visitor_index.asp?Content_ID=100171&Lang=CHIB5&Dimension=100&Parent_ID=10180
+                            hospUrlGb:
+                              type: string
+                              description: The hospital URL in Simplified Chinese.
+                              example: http://www.ha.org.hk/visitor/ha_visitor_index.asp?Content_ID=100171&Lang=CHIGB&Dimension=100&Parent_ID=10180
+                            hospCoord:
+                              type: string
+                              description: The hospital coordinates in latitude,longitude format.
+                              example: 22.458575,114.17472
+                            hospTime:
+                              type: string
+                              format: date-time
+                              description: The date and time of the queue time data.
+                              example: 2023-05-05T21:45:01.823
+                            hospTimeEn:
+                              type: string
+                              description: The date and time of the queue time data in English.
+                              example: 5/5/2023 9:45pm
+                            pastHours:
+                              type: integer
+                              description: The number of past hours that the queue time data covers.
+                              example: 3
+                            topWait:
+                              type: string
+                              description: The longest wait time for the top category of patients.
+                              example: "> 4"
+                      timeEn:
+                        type: string
+                        description: The date and time of the queue time data in English.
+                        example: 5/5/2023 9:45pm
+                      timeB5:
+                        type: string
+                        description: The date and time of the queue time data in Traditional Chinese.
+                        example: 2023年5月5日 下午9時45分
+                      timeGb:
+                        type: string
+                        description: The date and time of the queue time data in Simplified Chinese.
+                        example: 2023年5月5日 下午9时45分
+                      nearbyHosp:
+                        type: integer
+                        description: The number of nearby hospitals.
+                        example: 0
+                      titleEn:
+                        type: string
+                        description: The A&E department title in English.
+                        example: A&E
+                      titleB5:
+                        type: string
+                        description: The A&E department title in Traditional Chinese.
+                        example: 急症室
+                      titleGb:
+                        type: string
+                        description: The A&E department title in Simplified Chinese.
+                        example: 急症室
+                      headerEn:
+                        type: string
+                        description: The A&E department header in English.
+                        example: Priority will be accorded to patients triaged as critical, emergency and urgent.
+                      headerB5:
+                        type: string
+                        description: The A&E department header in Traditional Chinese.
+                        example: 急症室會優先診治被分流為危殆、危急和緊急的病人。
+                      headerGb:
+                        type: string
+                        description: The A&E department header in Simplified Chinese.
+                        example: 急症室会优先诊治被分流為危殆、危急和紧急的病人。
+                      timeTitleEn:
+                        type: string
+                        description: The title for the longest wait time for other patients in English.
+                        example: The longest wait for other patients is as below
+                      timeTitleB5:
+                        type: string
+                        description: The title for the longest wait time for other patients in Traditional Chinese.
+                        example: 其他病人候診時間最長如下
+                      timeTitleGb:
+                        type: string
+                        description: The title for the longest wait time for other patients in Simplified Chinese.
+                        example: 其他病人候诊时间最长如下
+                      timeDescEn:
+                        type: string
+                        description: The description for the longest wait time for other patients in English.
+                        example: As at %s
+                      timeDescB5:
+                        type: string
+                        description: The description for the longest wait time for other patients in Traditional Chinese.
+                        example: 於%s
+                      timeDescGb:
+                        type: string
+                        description: The description for the longest wait time for other patients in Simplified Chinese.
+                        example: 於%s
+                  footerEn:
+                    type: string
+                    description: The footer message in English.
+                  footerB5:
+                    type: string
+                    description: The footer message in Traditional Chinese.
+                  footerGb:
+                    type: string
+                    description: The footer message in Simplified Chinese.
