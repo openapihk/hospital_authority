@@ -63,16 +63,18 @@ paths:
                               example: http://www.ha.org.hk/visitor/ha_visitor_index.asp?Content_ID=100171&Lang=CHIGB&Dimension=100&Parent_ID=10180
                             hospCoord:
                               type: string
-                              description: The hospital coordinates in latitude,longitude format.
+                              pattern: '^\d+\.\d+,\s*\d+\.\d+$'
+                              description: The hospital coordinates in latitude,longitude format. Sometime a space is added after comma
                               example: 22.458575,114.17472
                             hospTime:
                               type: string
-                              format: date-time
-                              description: The date and time of the queue time data.
+                              pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+$'
+                              description: The date and time of the queue time data. Time zone is not specified as in RFC 3339 section 5.6
                               example: 2023-05-05T21:45:01.823
                             hospTimeEn:
                               type: string
                               description: The date and time of the queue time data in English.
+                              pattern: '^\d+\/\d+/\d{4}\s+\d+:\d+(am|pm)$'
                               example: 5/5/2023 9:45pm
                             pastHours:
                               type: integer
@@ -85,6 +87,7 @@ paths:
                       timeEn:
                         type: string
                         description: The date and time of the queue time data in English.
+                        pattern: '^\d+\/\d+/\d{4}\s+\d+:\d+(am|pm)$'
                         example: 5/5/2023 9:45pm
                       timeB5:
                         type: string
