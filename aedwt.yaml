@@ -1,8 +1,19 @@
 openapi: 3.0.0
+tags: 
+  - name: Undocumeneted
+    description: Use at your own risk
 info:
   title: Hong Kong Queue Time for Hospitals A&E API
   version: 1.0.0
   description: API for retrieving the queue time for A&E departments in Hong Kong hospitals.
+  contact:
+    name: Neo Alienson
+    email: 'neo@01man.com'
+    url: https://openapihk.github.io/portal
+  termsOfService: https://openapihk.github.io/misc/terms_of_service.html
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html  
 servers:
   - url: https://www.ha.org.hk/aedwt/data
 paths:
