@@ -1,6 +1,6 @@
 openapi: 3.0.0
 tags: 
-  - name: Undocumeneted
+  - name: Private/Undocumeneted
     description: Use at your own risk
 info:
   title: Hong Kong Queue Time for Hospitals A&E API
