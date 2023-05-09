@@ -79,7 +79,7 @@ paths:
                               example: 22.458575,114.17472
                             hospTime:
                               type: string
-                              pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+$'
+                              pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+|)$'
                               description: The date and time of the queue time data. Time zone is not specified as in RFC 3339 section 5.6
                               example: 2023-05-05T21:45:01.823
                             hospTimeEn:
